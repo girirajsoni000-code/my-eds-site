@@ -17,7 +17,7 @@
       "passConfig": true,
       "passReferrer": true,
       "includePaths": [
-        "**.docx**"
+        "**"
       ],
       "isPalette": true,
       "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: auto; width:400px; height: calc(100vh - 60px)"

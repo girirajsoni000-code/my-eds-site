@@ -9,6 +9,7 @@ import {
   loadSection,
   loadSections,
   loadCSS,
+  buildBlock,
 } from './aem.js';
 
 /**
@@ -61,9 +62,15 @@ async function loadFonts() {
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
-function buildAutoBlocks() {
+function buildAutoBlocks(main) {
   try {
-    // TODO: add auto block, if needed
+    main.querySelectorAll('a[href$=".json"]').forEach((a) => {
+      const p = a.closest('p');
+      if (p && p.textContent.trim() === a.textContent.trim()) {
+        const block = buildBlock('data-table', [[a.cloneNode(true)]]);
+        p.replaceWith(block);
+      }
+    });
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);

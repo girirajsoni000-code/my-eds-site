@@ -42,6 +42,7 @@ export default async function decorate(block) {
       block.innerHTML = '<p>No data found.</p>';
     }
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error('Error fetching data for data-table block', error);
     block.innerHTML = '<p>Failed to load data.</p>';
   }

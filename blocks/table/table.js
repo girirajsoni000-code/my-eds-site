@@ -95,6 +95,7 @@ export default async function decorate(block) {
         tableContainer.innerHTML = '<p style="padding: 1rem;">No data found.</p>';
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Error fetching data for table block', error);
       tableContainer.innerHTML = '<p style="padding: 1rem;">Failed to load data.</p>';
     }

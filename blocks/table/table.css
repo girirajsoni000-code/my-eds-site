@@ -15,7 +15,7 @@
   font-size: 1rem;
   color: var(--text-color, #333);
   background-color: var(--background-color, #fff);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(0 0 0 / 10%);
   border-radius: 8px;
   appearance: none;
   background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23333%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
@@ -23,27 +23,27 @@
   background-position: right 0.7rem top 50%;
   background-size: 1.2rem auto;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgb(0 0 0 / 5%);
   transition: all 0.2s ease-in-out;
 }
 
 .table-sheet-selector:hover {
-  border-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  border-color: rgb(0 0 0 / 20%);
+  box-shadow: 0 6px 12px rgb(0 0 0 / 8%);
 }
 
 .table-sheet-selector:focus {
   outline: none;
   border-color: #0070f3;
-  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
+  box-shadow: 0 0 0 3px rgb(0 112 243 / 20%);
 }
 
 .table-container {
   overflow-x: auto;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 5%);
   background: var(--background-color, #fff);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgb(0 0 0 / 5%);
 }
 
 .table table {
@@ -56,11 +56,11 @@
 .table td {
   padding: 1rem;
   text-align: left;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgb(0 0 0 / 5%);
 }
 
 .table th {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgb(0 0 0 / 2%);
   font-weight: 600;
   color: var(--text-color, #111);
   letter-spacing: 0.5px;
@@ -71,7 +71,7 @@
 }
 
 .table tbody tr:hover {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: rgb(0 0 0 / 2%);
 }
 
 .table tbody tr:last-child td {

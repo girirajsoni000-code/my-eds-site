@@ -40,7 +40,7 @@ export default async function decorate(block) {
   });
 
   block.innerHTML = '';
-  
+
   const carouselWrapper = document.createElement('div');
   carouselWrapper.className = 'carousel-wrapper';
 
@@ -51,4 +51,4 @@ export default async function decorate(block) {
   block.append(carouselWrapper);
 
   await decorateIcons(block);
-}
+}

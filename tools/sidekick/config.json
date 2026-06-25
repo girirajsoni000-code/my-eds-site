@@ -1,7 +1,5 @@
 {
   "project": "AEM XWalk Boilerplate",
-  "editUrlLabel": "AEM Editor",
-  "editUrlPattern": "{{contentSourceUrl}}{{pathname}}",
   "plugins": [
     {
       "id": "asset-library",

@@ -6,7 +6,7 @@
     {
       "id": "asset-library",
       "title": "AEM Assets",
-      "environments": ["edit", "dev"],
+      "environments": ["edit", "dev", "preview", "live", "prod"],
       "url": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/franklin/asset-selector.html",
       "passConfig": true,
       "passReferrer": true,

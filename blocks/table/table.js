@@ -26,10 +26,10 @@ export default async function decorate(block) {
   // Create Dropdown wrapper
   const controls = document.createElement('div');
   controls.className = 'table-controls';
-  
+
   const select = document.createElement('select');
   select.className = 'table-sheet-selector';
-  
+
   const optDefault = document.createElement('option');
   optDefault.value = 'default';
   optDefault.textContent = 'Default';
@@ -50,7 +50,7 @@ export default async function decorate(block) {
 
   const fetchAndRenderTable = async (sheetName) => {
     tableContainer.innerHTML = '<p style="padding: 1rem;">Loading...</p>';
-    
+
     let fetchUrl = url;
     if (sheetName && sheetName !== 'default') {
       fetchUrl = `${url}?sheet=${sheetName}`;

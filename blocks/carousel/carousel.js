@@ -43,12 +43,12 @@ export default async function decorate(block) {
   
   const carouselWrapper = document.createElement('div');
   carouselWrapper.className = 'carousel-wrapper';
-  
+
   if (prevBtn) carouselWrapper.append(prevBtn);
   carouselWrapper.append(slider);
   if (nextBtn) carouselWrapper.append(nextBtn);
-  
+
   block.append(carouselWrapper);
-  
+
   await decorateIcons(block);
-}
+}

@@ -3,25 +3,105 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-template-columns: 1fr;
   gap: 24px;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
 }
 
-.cards .cards-card-body {
-  margin: 16px;
+.cards .cards-card-title {
+  font-family: var(--heading-font-family);
+  font-size: 22px;
+  font-weight: 500;
+  color: #111;
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+
+.cards .cards-card-box {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e7e7eb;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 6%);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cards .cards-card-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 10%);
 }
 
 .cards .cards-card-image {
   line-height: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #5c1d8d;
 }
 
-.cards > ul > li img {
+.cards .cards-card-image img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
+  display: block;
+}
+
+.cards .cards-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #fafafc;
+}
+
+.cards .cards-card-body p {
+  color: #3e3e42;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 18px;
+}
+
+.cards .cards-card-body .cards-card-actions {
+  margin-top: auto;
+  margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+}
+
+.cards .cards-card-body a {
+  color: #5c1d8d;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.cards .cards-card-body a:hover {
+  color: #3b0f5e;
+  text-decoration: underline;
+}
+
+@media (width >= 600px) {
+  .cards > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (width >= 900px) {
+  .cards > ul {
+    gap: 32px;
+  }
+
+  .cards .cards-card-title {
+    font-size: 24px;
+  }
 }

@@ -159,17 +159,14 @@ export default function decorate(block) {
       const isVideo = isVideoUrl(videoUrl) || block.classList.contains('video');
 
       if (picture) {
-        let imageLink = mediaCell.querySelector('a');
         if (isVideo) {
-          if (!imageLink) {
-            imageLink = document.createElement('a');
-            imageLink.href = videoUrl || '#';
-            picture.parentNode.insertBefore(imageLink, picture);
-            imageLink.append(picture);
-          }
+          const imageLink = document.createElement('a');
+          imageLink.href = videoUrl || '#';
           imageLink.classList.add('cards-card-video-link', 'lightbox-br');
           imageLink.setAttribute('role', 'button');
           imageLink.setAttribute('aria-label', 'Play video');
+          
+          imageLink.append(picture);
           imageLink.append(createPlayButton());
 
           if (videoUrl && videoUrl !== '#') {
@@ -178,7 +175,11 @@ export default function decorate(block) {
               openVideoModal(block, videoUrl);
             });
           }
+          
+          // Replace everything in the cell so raw text/links are hidden
+          mediaCell.replaceChildren(imageLink);
         }
+
       } else if (videoUrl) {
         const imageLink = document.createElement('a');
         imageLink.href = videoUrl;

@@ -51,20 +51,13 @@ export default async function decorate(block) {
 
     // Handle Tab Clicks
     tabBtn.addEventListener('click', () => {
-      // Remove active from all tabs and panels
-      tabsList.querySelectorAll('.tab-btn').forEach((btn) => btn.classList.remove('active'));
-      tabsContent.querySelectorAll('.tab-panel').forEach((panel) => panel.classList.remove('active'));
+      // Smooth scroll to the panel
+      tabPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
       
-      // Set current tab and panel as active
+      // Update active state on buttons manually upon click
+      tabsList.querySelectorAll('.tab-btn').forEach((btn) => btn.classList.remove('active'));
       tabBtn.classList.add('active');
-      tabPanel.classList.add('active');
     });
-
-    // Set the first tab as active by default
-    if (i === 0) {
-      tabBtn.classList.add('active');
-      tabPanel.classList.add('active');
-    }
 
     tabsList.append(tabBtn);
     tabsContent.append(tabPanel);
@@ -72,4 +65,21 @@ export default async function decorate(block) {
 
   block.textContent = '';
   block.append(tabsList, tabsContent);
+
+  // Optional: Update the active tab button as the user scrolls through the content
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        tabsList.querySelectorAll('.tab-btn').forEach((btn) => btn.classList.remove('active'));
+        const index = [...tabsContent.children].indexOf(entry.target);
+        if (index >= 0) {
+          tabsList.children[index].classList.add('active');
+        }
+      }
+    });
+  }, { threshold: 0.2 });
+
+  tabsContent.querySelectorAll('.tab-panel').forEach((panel) => {
+    observer.observe(panel);
+  });
 }

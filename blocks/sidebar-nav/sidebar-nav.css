@@ -1,0 +1,60 @@
+/* 1. Page Layout (Triggered by the JS class) */
+main.has-sidebar-nav {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+  padding: 2rem;
+}
+
+@media (max-width: 899px) {
+  main.has-sidebar-nav {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 2. Make the sidebar wrapper sticky */
+.sidebar-nav-wrapper {
+  position: sticky;
+  top: 2rem;
+  /* Ensure it doesn't grow taller than the screen, allowing internal scroll if needed */
+  max-height: calc(100vh - 4rem); 
+  overflow-y: auto;
+}
+
+/* 3. Style the Navigation Menu */
+.sidebar-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-nav-btn {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 1rem 1.5rem;
+  font-size: var(--body-font-size-s);
+  cursor: pointer;
+  color: var(--text-color);
+  border-left: 4px solid transparent;
+  transition: all 0.2s;
+  width: 100%;
+  display: block;
+}
+
+.sidebar-nav-btn:hover {
+  background-color: var(--light-color);
+}
+
+.sidebar-nav-btn.active {
+  border-left-color: purple; /* The purple from your screenshot */
+  font-weight: bold;
+  color: purple;
+  background-color: #fafafa;
+}

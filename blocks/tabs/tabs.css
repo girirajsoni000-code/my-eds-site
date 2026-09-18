@@ -17,6 +17,10 @@
   flex-direction: column;
   min-width: 250px;
   gap: 0.25rem;
+  position: sticky;
+  top: 2rem;
+  align-self: flex-start;
+  height: max-content;
 }
 
 .tabs .tab-btn {
@@ -47,15 +51,7 @@
 }
 
 .tabs .tab-panel {
-  display: none;
-}
-
-.tabs .tab-panel.active {
   display: block;
-  animation: fadeIn 0.3s ease-in-out;
+  margin-bottom: 4rem;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}

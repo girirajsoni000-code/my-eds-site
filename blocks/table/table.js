@@ -40,6 +40,11 @@ export default async function decorate(block) {
   optAsia.textContent = 'Asia';
   select.appendChild(optAsia);
 
+  const optRef = document.createElement('option');
+  optRef.value = 'reference';
+  optRef.textContent = 'Reference';
+  select.appendChild(optRef);
+
   controls.appendChild(select);
   block.appendChild(controls);
 
@@ -62,6 +67,8 @@ export default async function decorate(block) {
       const json = await response.json();
 
       if (json && json.data && json.data.length > 0) {
+        // eslint-disable-next-line no-console
+        console.log('Fetched data for sheet:', sheetName, json.data);
         const table = document.createElement('table');
 
         // Create header

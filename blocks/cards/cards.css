@@ -23,7 +23,7 @@
 
 .cards .cards-card-box {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
   border: 1px solid #e7e7eb;
   box-shadow: 0 4px 16px rgb(0 0 0 / 6%);
@@ -39,17 +39,52 @@
 }
 
 .cards .cards-card-image {
+  position: relative;
   line-height: 0;
   width: 100%;
   overflow: hidden;
   background-color: #5c1d8d;
 }
 
-.cards .cards-card-image img {
+.cards .cards-card-image a,
+.cards .lightbox-br {
+  position: relative;
+  display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 100%;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cards .cards-card-image img,
+.cards .cards-card-image video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
+}
+
+.cards .cards-card-play-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 36px;
+  height: 32px;
+  background-color: #fff;
+  border-top-right-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5c1d8d;
+  z-index: 2;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 15%);
+  pointer-events: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cards .cards-card-box:hover .cards-card-play-button {
+  background-color: #5c1d8d;
+  color: #fff;
 }
 
 .cards .cards-card-body {
@@ -57,14 +92,14 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: #fafafc;
+  background-color: #fff;
 }
 
 .cards .cards-card-body p {
   color: #3e3e42;
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.625;
+  margin: 0 0 20px;
 }
 
 .cards .cards-card-body .cards-card-actions {
@@ -78,8 +113,8 @@
 
 .cards .cards-card-body a {
   color: #5c1d8d;
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 16px;
   text-decoration: none;
   transition: color 0.15s ease;
 }
@@ -87,6 +122,84 @@
 .cards .cards-card-body a:hover {
   color: #3b0f5e;
   text-decoration: underline;
+}
+
+/* Video Lightbox Modal */
+.cards .cards-video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.cards .cards-video-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cards .cards-video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(0 0 0 / 85%);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.cards .cards-video-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: 90vw;
+  max-width: 960px;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgb(0 0 0 / 50%);
+}
+
+.cards .cards-video-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  background: rgb(0 0 0 / 60%);
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cards .cards-video-modal-close:hover {
+  background: #5c1d8d;
+  border-color: #5c1d8d;
+  transform: scale(1.08);
+}
+
+.cards .cards-video-modal-player-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+.cards .cards-video-modal-player {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  object-fit: contain;
 }
 
 @media (width >= 600px) {

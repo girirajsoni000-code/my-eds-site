@@ -1,0 +1,186 @@
+.forms {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.forms .forms-wrapper {
+  background: white;
+  width: 90%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  position: relative;
+  padding: 40px;
+  box-sizing: border-box;
+  text-align: left;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Headers spanning full width */
+.forms .forms-wrapper .title-s,
+.forms .forms-wrapper .ge-contact-us-form-wrapper__newsletter--subheading,
+.forms .forms-wrapper .phone-help-text {
+  grid-column: span 2;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.forms .title-s {
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+.forms .ge-contact-us-form-wrapper__newsletter--subheading {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.forms .phone-help-text {
+  margin-bottom: 32px;
+}
+.forms .phone-help-text p {
+  margin: 0 0 4px 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+.forms .phone-help-text a {
+  color: #6a1b9a;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* Form Groups */
+.forms .form-group {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+/* Split Columns */
+.forms .form-group.name,
+.forms .form-group.surname,
+.forms .form-group.e-mail,
+.forms .form-group.phone-number,
+.forms .form-group.country,
+.forms .form-group.zip-postal-code {
+  grid-column: span 1;
+}
+
+.forms label {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: #666;
+  font-weight: normal;
+}
+
+.forms input[type="text"],
+.forms input[type="email"],
+.forms input[type="tel"],
+.forms select,
+.forms textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #fafafa;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.forms select {
+  background: white;
+}
+
+.forms textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Section titles inside form-group */
+.forms .section-title {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-weight: 500;
+  margin-top: 0;
+  color: #333;
+}
+
+/* Button Group (Help options) */
+.forms .button-group {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.forms .help-btn {
+  flex: 1;
+  padding: 12px 8px;
+  background: white;
+  color: #666;
+  border: none;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.forms .help-btn:last-child {
+  border-right: none;
+}
+.forms .help-btn.active {
+  background: #6a1b9a;
+  color: white;
+  font-weight: bold;
+}
+
+/* Checkbox specific */
+.forms .form-group.updates {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+}
+.forms .form-group.updates input[type="checkbox"] {
+  margin-top: 4px;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.forms .form-group.updates label {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Submit Button */
+.forms .form-submit-wrapper {
+  grid-column: span 2;
+  margin-top: 16px;
+}
+
+.forms button[type="submit"] {
+  padding: 12px 32px;
+  background-color: #6a1b9a;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+.forms button[type="submit"]:hover {
+  background-color: #4a148c;
+}

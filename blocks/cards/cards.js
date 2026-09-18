@@ -5,8 +5,7 @@ function isVideoUrl(url) {
   if (!url) return false;
   return /\.(mp4|webm|ogv|mov)(\?.*)?$/i.test(url)
     || /scene7\.com.*video/i.test(url)
-    || /youtube\.com|youtu\.be|vimeo\.com/i.test(url)
-    || /video|training/i.test(url);
+    || /youtube\.com|youtu\.be|vimeo\.com/i.test(url);
 }
 
 function openVideoModal(block, videoUrl) {
@@ -251,6 +250,10 @@ export default function decorate(block) {
                 e.preventDefault();
                 openVideoModal(block, a.href);
               });
+            } else {
+              // Open presentations and guidelines in a new tab
+              a.setAttribute('target', '_blank');
+              a.setAttribute('rel', 'noopener noreferrer'); // Security best practice for target="_blank"
             }
           });
         }
